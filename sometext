@@ -1,0 +1,47 @@
+user add (incomplete)
+if (isset($_POST['user']) && isset($_POST['passwd'])) {
+	if ($users->addUser($link,$_POST['user'],$_POST['passwd']))
+	{ 
+		echo "Usuario creado con exito"; 
+		header("Location: index.php"); 
+	} else echo "no se pudo crear";
+	
+}
+
+delete user
+if(isset($_GET['del'])){
+	if($users->deleteUser($link,$_GET['del'])) {
+		echo "User delete";
+		header("Location: index.php");
+	} else echo "No se pudo borrar";
+}
+
+login (incomplete)
+
+if (isset($_POST['user']) && isset($_POST['passwd']))
+{
+	$user = new users();
+	$user->logIn($link,$_POST['user'],$_POST['passwd']);
+}
+
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="fye.css" />
+</head>
+<body class="indexbody">
+<div id="contentbody">
+	<div id="topimg">
+		Version 0.7.10 Copyleft Luis cassih
+	</div>
+<div align="center" style="margin-left:40%;" ><center>
+	<br>
+	<div style="float:left;"> <img src="images/errorcontentizq.png" /></div>
+	<div style="float:left;" id="errorcontent"><p style="margin-top:30%">$e</p></div>
+	<div style="float:left;"><img src="images/errorcontentder.png" /></div>
+	</div>
+</div>
+</body>
+</html>
+
+Solucionar problema de strip html cuando envias una nueva noticia
